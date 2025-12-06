@@ -66,9 +66,14 @@ def preprocess_lines(lines: List[str]) -> List[dict]:
         cleaned = raw_line.strip()
 
         tokens = re.findall(
-            r"[A-Za-z_]\w*|\d+|==|!=|<=|>=|[{}();=<>+\-/*]",
+            r'"[^"]*"|'             
+            r"[A-Za-z_]\w*|"        
+            r"\d+|"                 
+            r"==|!=|<=|>=|"         
+            r"[{}\[\]();=<>+\-/*]", 
             cleaned
         )
+
 
         processed.append({
             "line_num": idx,
