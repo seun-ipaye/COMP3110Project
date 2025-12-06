@@ -1,25 +1,19 @@
 import os
 from typing import List, Tuple, Optional
+import re
 
-
+#Input Handling
 def prompt_for_file_path(label: str) -> Optional[str]:
-    """
-    Ask the user for a file path.
-    Returns:
-      - the file path string, or
-      - None if the user enters 'q' to quit.
-    """
     while True:
         raw = input(f"Enter the path of the {label} file (or 'q' to exit): ").strip()
 
         if raw.lower() == "q":
             return None
 
-        # Expand ~ and remove quotes if user copies from file explorer
         path = os.path.expanduser(raw.strip('"'))
 
         if not path:
-            print("  Error: empty path, please try again.\n")
+            print("  Error: empty path.\n")
             continue
 
         if not os.path.exists(path):
@@ -38,21 +32,11 @@ def prompt_for_file_path(label: str) -> Optional[str]:
 
 
 def load_file_lines(path: str) -> List[str]:
-    """
-    Load a file and return a list of its lines (with newline stripped).
-    """
     with open(path, "r", encoding="utf-8", errors="replace") as f:
         return [line.rstrip("\n") for line in f]
 
 
 def get_two_files() -> Optional[Tuple[List[str], List[str]]]:
-    """
-    Ask for old and new file paths, validate them,
-    and return their contents as lists of lines.
-    Returns:
-      - (old_lines, new_lines) on success
-      - None if the user quits.
-    """
     print("=== Line Mapper (Step 1: file input) ===")
 
     old_path = prompt_for_file_path("OLD")
@@ -70,11 +54,33 @@ def get_two_files() -> Optional[Tuple[List[str], List[str]]]:
     new_lines = load_file_lines(new_path)
 
     print(f"  Loaded OLD file: {old_path}  ({len(old_lines)} lines)")
-    print(f"  Loaded NEW file: {new_path}  ({len(new_lines)} lines)")
+    print(f"  Loaded NEW file: {new_path}  ({len(new_lines)} lines)\n")
 
     return old_lines, new_lines
 
+#Preprocessing
+def preprocess_lines(lines: List[str]) -> List[dict]:
+    processed = []
 
+    for idx, raw_line in enumerate(lines, start=1):
+        cleaned = raw_line.strip()
+
+        tokens = re.findall(
+            r"[A-Za-z_]\w*|\d+|==|!=|<=|>=|[{}();=<>+\-/*]",
+            cleaned
+        )
+
+        processed.append({
+            "line_num": idx,
+            "raw": raw_line,
+            "tokens": tokens
+        })
+
+    return processed
+
+
+
+#main
 def main():
     result = get_two_files()
     if result is None:
@@ -82,16 +88,19 @@ def main():
 
     old_lines, new_lines = result
 
-    # For now, just show a small preview so we know it worked
-    print("\n=== Preview: first few lines of OLD file ===")
-    for i, line in enumerate(old_lines[:5], start=1):
-        print(f"{i:3}: {line}")
+    print("\n=== Step 2: Preprocessing ===")
+    old_processed = preprocess_lines(old_lines)
+    new_processed = preprocess_lines(new_lines)
 
-    print("\n=== Preview: first few lines of NEW file ===")
-    for i, line in enumerate(new_lines[:5], start=1):
-        print(f"{i:3}: {line}")
+    print("\nOLD FILE (first 5 preprocessed lines):")
+    for entry in old_processed[:5]:
+        print(f"Line {entry['line_num']:3}: tokens = {entry['tokens']}")
 
-    print("\nStep 1 complete: files are loaded into memory as lists of lines.")
+    print("\nNEW FILE (first 5 preprocessed lines):")
+    for entry in new_processed[:5]:
+        print(f"Line {entry['line_num']:3}: tokens = {entry['tokens']}")
+
+    print("\nStep 2 complete.\n")
 
 
 if __name__ == "__main__":
