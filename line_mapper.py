@@ -1,6 +1,7 @@
 import os
 from typing import List, Tuple, Optional
 import re
+from Levenshtein import ratio as levenshtein_ratio
 
 #Input Handling
 def prompt_for_file_path(label: str) -> Optional[str]:
@@ -78,6 +79,8 @@ def preprocess_lines(lines: List[str]) -> List[dict]:
 
     return processed
 
+#3
+
 def lcs_table(a: List[str], b: List[str]) -> List[List[int]]:
     n, m = len(a), len(b)
     dp = [[0]*(m+1) for _ in range(n+1)]
@@ -135,6 +138,101 @@ def detect_unchanged(old_processed, new_processed):
 
     return unchanged_pairs, left_list, right_list
 
+# -----------------------------
+# Step 4: Candidate Generation
+# -----------------------------
+
+
+
+def get_context(norm_lines: List[str], index: int, window: int = 4) -> str:
+    """Return normalized context window: 4 lines above + 4 lines below."""
+    start = max(0, index - window)
+    end = min(len(norm_lines), index + window + 1)
+    return " ".join(norm_lines[start:end])
+
+
+def simhash(text: str, bits: int = 64) -> int:
+    """Compute a simple simhash for a string."""
+    if not text:
+        return 0
+
+    v = [0] * bits
+
+    for token in text.split():
+        h = hash(token)  # built-in hash
+        for i in range(bits):
+            bitmask = 1 << i
+            if h & bitmask:
+                v[i] += 1
+            else:
+                v[i] -= 1
+
+    # Build final hash
+    fingerprint = 0
+    for i in range(bits):
+        if v[i] >= 0:
+            fingerprint |= (1 << i)
+
+    return fingerprint
+
+
+def hamming_distance(x: int, y: int) -> int:
+    return bin(x ^ y).count("1")
+
+
+def compute_similarity(old_line: str, new_line: str,
+                       old_context: str, new_context: str) -> float:
+    """Compute combined content + context similarity."""
+    content_sim = levenshtein_ratio(old_line, new_line)
+    context_sim = levenshtein_ratio(old_context, new_context)
+
+    score = 0.6 * content_sim + 0.4 * context_sim
+    return score
+
+
+def generate_candidates(old_processed, new_processed,
+                        left_list, right_list, k: int = 5):
+    """Generate top-k candidate matches for each deleted line."""
+
+    # Pre-extract normalized lines
+    old_norm = [x["norm"] for x in old_processed]
+    new_norm = [x["norm"] for x in new_processed]
+
+    # Precompute contexts
+    old_contexts = [get_context(old_norm, i) for i in range(len(old_norm))]
+    new_contexts = [get_context(new_norm, j) for j in range(len(new_norm))]
+
+    # Precompute simhash for bonus marks
+    old_hashes = [simhash(old_norm[i] + " " + old_contexts[i]) for i in range(len(old_norm))]
+    new_hashes = [simhash(new_norm[j] + " " + new_contexts[j]) for j in range(len(new_norm))]
+
+    candidate_map = {}
+
+    for oi in left_list:
+        scores = []
+
+        for nj in right_list:
+            # Optional: quick reject using simhash distance
+            ham = hamming_distance(old_hashes[oi], new_hashes[nj])
+            if ham > 20:  # threshold; adjust as needed
+                continue
+
+            score = compute_similarity(
+                old_norm[oi], new_norm[nj],
+                old_contexts[oi], new_contexts[nj]
+            )
+
+            scores.append((score, oi, nj))
+
+        # Sort highest score first
+        scores.sort(reverse=True, key=lambda x: x[0])
+
+        # Take top-k
+        candidate_map[oi] = scores[:k]
+
+    return candidate_map
+
+
 
 #main
 
@@ -170,6 +268,16 @@ def main():
     print("RIGHT LIST (added candidates):", [j+1 for j in right_list])
 
     print("\nStep 3 complete.\n")
+    print("\n=== Step 4: Candidate Matching ===")
+    candidates = generate_candidates(old_processed, new_processed, left_list, right_list)
+
+    for oi, cand_list in candidates.items():
+        print(f"\nOld line {oi+1} candidates:")
+        for score, old_i, new_j in cand_list:
+            print(f"   → new {new_j+1}  (score={score:.3f})")
+
+    print("\nStep 4 complete.\n")
+
 
 
 if __name__ == "__main__":
