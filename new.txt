@@ -1,0 +1,6 @@
+public void test(){
+    int a = 5;
+    int c = 20;   
+    System.out.println(a+c);
+    System.out.println("done");
+}

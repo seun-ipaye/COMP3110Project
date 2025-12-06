@@ -60,17 +60,11 @@ def get_two_files() -> Optional[Tuple[List[str], List[str]]]:
 
 #Preprocessing
 def normalize_line(line: str) -> str:
-    """Normalize line exactly like professor’s slide:
-       - lowercase
-       - collapse multiple spaces
-       - strip whitespace
-    """
     line = line.lower()
     line = re.sub(r"\s+", " ", line)
     return line.strip()
 
 def preprocess_lines(lines: List[str]) -> List[dict]:
-    """Apply normalization and keep original line number + raw text."""
     processed = []
 
     for idx, raw_line in enumerate(lines, start=1):
@@ -84,7 +78,66 @@ def preprocess_lines(lines: List[str]) -> List[dict]:
 
     return processed
 
+def lcs_table(a: List[str], b: List[str]) -> List[List[int]]:
+    n, m = len(a), len(b)
+    dp = [[0]*(m+1) for _ in range(n+1)]
+
+    for i in range(n):
+        for j in range(m):
+            if a[i] == b[j]:
+                dp[i+1][j+1] = dp[i][j] + 1
+            else:
+                dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j])
+    return dp
+
+
+def recover_lcs_pairs(a: List[str], b: List[str], dp: List[List[int]]):
+    i, j = len(a), len(b)
+    pairs = []
+
+    while i > 0 and j > 0:
+        if a[i-1] == b[j-1]:
+            pairs.append((i-1, j-1))
+            i -= 1
+            j -= 1
+        else:
+            if dp[i-1][j] >= dp[i][j-1]:
+                i -= 1
+            else:
+                j -= 1
+
+    pairs.reverse()
+    return pairs
+
+
+def classify_unmatched(old_len: int, new_len: int, unchanged_pairs):
+    unchanged_old = {i for (i, j) in unchanged_pairs}
+    unchanged_new = {j for (i, j) in unchanged_pairs}
+
+    left_list = [i for i in range(old_len) if i not in unchanged_old]
+    right_list = [j for j in range(new_len) if j not in unchanged_new]
+
+    return left_list, right_list
+
+
+def detect_unchanged(old_processed, new_processed):
+    old_norm = [entry["norm"] for entry in old_processed]
+    new_norm = [entry["norm"] for entry in new_processed]
+
+    dp = lcs_table(old_norm, new_norm)
+    unchanged_pairs = recover_lcs_pairs(old_norm, new_norm, dp)
+
+    left_list, right_list = classify_unmatched(
+        len(old_norm),
+        len(new_norm),
+        unchanged_pairs
+    )
+
+    return unchanged_pairs, left_list, right_list
+
+
 #main
+
 def main():
     result = get_two_files()
     if result is None:
@@ -105,6 +158,18 @@ def main():
         print(f"Line {entry['line_num']:3}: norm = {entry['norm']}")
 
     print("\nStep 2 complete.\n")
+
+    print("\n=== Step 3: LCS UNCHANGED DETECTION ===")
+    unchanged, left_list, right_list = detect_unchanged(old_processed, new_processed)
+
+    print("\nUNCHANGED PAIRS:")
+    for (oi, nj) in unchanged:
+        print(f"  old {oi+1} ↔ new {nj+1}")
+
+    print("\nLEFT LIST (deleted candidates):", [i+1 for i in left_list])
+    print("RIGHT LIST (added candidates):", [j+1 for j in right_list])
+
+    print("\nStep 3 complete.\n")
 
 
 if __name__ == "__main__":
