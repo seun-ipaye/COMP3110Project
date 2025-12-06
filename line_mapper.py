@@ -59,31 +59,30 @@ def get_two_files() -> Optional[Tuple[List[str], List[str]]]:
     return old_lines, new_lines
 
 #Preprocessing
+def normalize_line(line: str) -> str:
+    """Normalize line exactly like professor’s slide:
+       - lowercase
+       - collapse multiple spaces
+       - strip whitespace
+    """
+    line = line.lower()
+    line = re.sub(r"\s+", " ", line)
+    return line.strip()
+
 def preprocess_lines(lines: List[str]) -> List[dict]:
+    """Apply normalization and keep original line number + raw text."""
     processed = []
 
     for idx, raw_line in enumerate(lines, start=1):
-        cleaned = raw_line.strip()
-
-        tokens = re.findall(
-            r'"[^"]*"|'             
-            r"[A-Za-z_]\w*|"        
-            r"\d+|"                 
-            r"==|!=|<=|>=|"         
-            r"[{}\[\]();=<>+\-/*]", 
-            cleaned
-        )
-
+        normalized = normalize_line(raw_line)
 
         processed.append({
             "line_num": idx,
             "raw": raw_line,
-            "tokens": tokens
+            "norm": normalized
         })
 
     return processed
-
-
 
 #main
 def main():
@@ -99,11 +98,11 @@ def main():
 
     print("\nOLD FILE (first 5 preprocessed lines):")
     for entry in old_processed[:5]:
-        print(f"Line {entry['line_num']:3}: tokens = {entry['tokens']}")
+        print(f"Line {entry['line_num']:3}: norm = {entry['norm']}")
 
     print("\nNEW FILE (first 5 preprocessed lines):")
     for entry in new_processed[:5]:
-        print(f"Line {entry['line_num']:3}: tokens = {entry['tokens']}")
+        print(f"Line {entry['line_num']:3}: norm = {entry['norm']}")
 
     print("\nStep 2 complete.\n")
 
