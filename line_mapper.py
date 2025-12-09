@@ -232,6 +232,60 @@ def generate_candidates(old_processed, new_processed,
 
     return candidate_map
 
+def classify_final_mappings(old_processed, new_processed,
+                            unchanged_pairs, candidates,
+                            left_list, right_list,
+                            move_distance=2,
+                            modified_threshold=0.65):
+    """
+    Produce final mapping:
+      old → (new line, classification)
+    """
+
+    final_map = {}  # old index → (new index or None, tag)
+    used_new_lines = set(j for (_, j) in unchanged_pairs)
+
+    # 1) Mark unchanged
+    for (oi, nj) in unchanged_pairs:
+        final_map[oi] = (nj, "unchanged")
+
+    # 2) Handle deleted / modified / moved
+    for oi in left_list:
+        cand_list = candidates.get(oi, [])
+
+        if not cand_list:
+            final_map[oi] = (None, "deleted")
+            continue
+
+        # Best candidate
+        best_score, _, best_new_j = cand_list[0]
+
+        if best_score < modified_threshold:
+            # Too weak → treat as deleted
+            final_map[oi] = (None, "deleted")
+            continue
+
+        # Get original positions
+        old_pos = oi
+        new_pos = best_new_j
+
+        # Movement analysis
+        movement = abs(old_pos - new_pos)
+
+        if movement > move_distance:
+            tag = "moved"
+        else:
+            tag = "modified"
+
+        final_map[oi] = (best_new_j, tag)
+        used_new_lines.add(best_new_j)
+
+    # 3) Anything in RIGHT LIST not used = added
+    added_lines = [j for j in right_list if j not in used_new_lines]
+
+    return final_map, added_lines
+
+
 
 
 #main
@@ -277,6 +331,26 @@ def main():
             print(f"   → new {new_j+1}  (score={score:.3f})")
 
     print("\nStep 4 complete.\n")
+    print("\n=== Step 5: Final Classification ===")
+
+    final_map, added_lines = classify_final_mappings(
+        old_processed, new_processed,
+        unchanged, candidates,
+        left_list, right_list
+    )
+
+    print("\nFINAL MAPPING:")
+    for oi in sorted(final_map.keys()):
+        new_j, tag = final_map[oi]
+        if new_j is None:
+           print(f"old {oi+1} → {tag}")
+        else:
+            print(f"old {oi+1} → new {new_j+1} ({tag})")
+
+    print("\nADDED LINES:", [j+1 for j in added_lines])
+
+    print("\nStep 5 complete.\n")
+
 
 
 
