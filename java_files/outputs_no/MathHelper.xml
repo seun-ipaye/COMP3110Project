@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROOT>
+  <TEST NAME="TEST_MathHelper" FILE="MathHelper.java">
+    <MAP>
+      <OLD>1</OLD>
+      <NEW>1</NEW>
+    </MAP>
+    <MAP>
+      <OLD>2</OLD>
+      <NEW>2</NEW>
+    </MAP>
+    <MAP>
+      <OLD>3</OLD>
+      <NEW>3</NEW>
+    </MAP>
+    <MAP>
+      <OLD>4</OLD>
+      <NEW>4</NEW>
+    </MAP>
+    <MAP>
+      <OLD>5</OLD>
+      <NEW>5</NEW>
+    </MAP>
+    <MAP>
+      <OLD>6</OLD>
+      <NEW>6</NEW>
+    </MAP>
+    <MAP>
+      <OLD>7</OLD>
+      <NEW>7</NEW>
+    </MAP>
+    <MAP>
+      <OLD>8</OLD>
+      <NEW>8</NEW>
+    </MAP>
+    <MAP>
+      <OLD>9</OLD>
+      <NEW>9</NEW>
+    </MAP>
+    <MAP>
+      <OLD>10</OLD>
+      <NEW>10</NEW>
+    </MAP>
+  </TEST>
+</ROOT>
