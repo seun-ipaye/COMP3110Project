@@ -1,4 +1,4 @@
-public class AdminChecker2 {
+public class AdminChecker_2 {
 
     public boolean isAdministrator(String r) {
         return "admin".equals(r);

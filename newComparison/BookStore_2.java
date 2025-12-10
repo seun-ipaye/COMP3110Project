@@ -1,8 +1,8 @@
-public class BookStore2 {
+public class BookStore_2 {
     private String name;
     private String city;
 
-    public BookStore2(String name, String city) {
+    public BookStore_2(String name, String city) {
         this.name = name;
         this.city = city;
     }

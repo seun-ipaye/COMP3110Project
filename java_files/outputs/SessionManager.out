@@ -31,56 +31,53 @@ New:
 Old:     public void startSession(String userId) {
 New:     public void login(String uid) {
 -----------------------------------------------------
-[RENAMED] Old Line 9 ↔ New Line 9
+Old Line 9 ↔ New Line 16
 Old:         sessions.put(userId, "ACTIVE");
-New:         activeSessions.put(uid, "ACTIVE");
+New:         return activeSessions.containsKey(uid);
 -----------------------------------------------------
-Old Line 10 ↔ New Line 10
+Old Line 10 ↔ New Line 9
 Old:     }
 New:     }
 -----------------------------------------------------
-Old Line 11 ↔ New Line 11
+Old Line 11 ↔ New Line 10
 Old: 
 New: 
 -----------------------------------------------------
-[RENAMED] Old Line 12 ↔ New Line 12
+[RENAMED] Old Line 12 ↔ New Line 11
 Old:     public void endSession(String userId) {
 New:     public void logout(String uid) {
 -----------------------------------------------------
-[RENAMED] Old Line 13 ↔ New Line 13
+[RENAMED] Old Line 13 ↔ New Line 12
 Old:         sessions.remove(userId);
 New:         activeSessions.remove(uid);
 -----------------------------------------------------
-Old Line 14 ↔ New Line 14
+Old Line 14 ↔ New Line 13
 Old:     }
 New:     }
 -----------------------------------------------------
-Old Line 15 ↔ New Line 15
+Old Line 15 ↔ New Line 14
 Old: 
 New: 
 -----------------------------------------------------
-[RENAMED] Old Line 16 ↔ New Line 16
+[RENAMED] Old Line 16 ↔ New Line 15
 Old:     public boolean isActive(String userId) {
 New:     public boolean checkStatus(String uid) {
 -----------------------------------------------------
-[RENAMED] Old Line 17 ↔ New Line 17
-Old:         return sessions.containsKey(userId);
-New:         return activeSessions.containsKey(uid);
------------------------------------------------------
-Old Line 18 ↔ New Line 18
+Old Line 18 ↔ New Line 17
 Old:     }
 New:     }
 -----------------------------------------------------
-Old Line 19 ↔ New Line 19
+Old Line 19 ↔ New Line 18
 Old: }
 New: }
 -----------------------------------------------------
 
 == Deleted Lines (Old but not in New) ==
+Old Line 17:         return sessions.containsKey(userId);
 
 == Inserted Lines (New but not in Old) ==
 
 == Summary ==
-Matched Lines: 19
-Deleted Lines: 0
+Matched Lines: 18
+Deleted Lines: 1
 Inserted Lines: 0

@@ -1,4 +1,4 @@
-public class MathUtils2 {
+public class MathUtils_2 {
 
     public int powerOf2(int a) {
         return a * a;

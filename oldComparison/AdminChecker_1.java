@@ -1,4 +1,4 @@
-public class AdminChecker1 {
+public class AdminChecker_1 {
 
     public boolean isAdmin(String role) {
         if (role != null && role.equals("admin")) {

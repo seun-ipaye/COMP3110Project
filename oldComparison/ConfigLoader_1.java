@@ -2,7 +2,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigLoader1 {
+public class ConfigLoader_1 {
 
     public Properties loadConfig(String filePath) throws IOException {
         Properties props = new Properties();

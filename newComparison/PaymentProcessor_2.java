@@ -1,10 +1,10 @@
 import java.time.LocalDateTime;
 
-public class PaymentProcessor2 {
+public class PaymentProcessor_2 {
 
     private double currentBalance;
 
-    public PaymentProcessor2(double initialBalance) {
+    public PaymentProcessor_2(double initialBalance) {
         this.currentBalance = initialBalance;
     }
 

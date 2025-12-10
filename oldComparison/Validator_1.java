@@ -1,4 +1,4 @@
-public class Validator1 {
+public class Validator_1 {
 
     public boolean isValidEmail(String email) {
         return email.contains("@");

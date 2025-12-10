@@ -1,4 +1,4 @@
-public class NotificationService1 {
+public class NotificationService_1 {
 
     public void sendEmail(String user, String msg) {
         System.out.println("EMAIL to " + user + ": " + msg);

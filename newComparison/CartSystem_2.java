@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class CartSystem2 {
+public class CartSystem_2 {
 
     private List<String> cartItems = new LinkedList<>();
 

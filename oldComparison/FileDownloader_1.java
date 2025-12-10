@@ -1,4 +1,4 @@
-public class FileDownloader1 {
+public class FileDownloader_1 {
 
     public void download(String url) {
         System.out.println("Downloading from: " + url);

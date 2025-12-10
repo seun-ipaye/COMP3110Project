@@ -1,4 +1,4 @@
-public class MathUtils1 {
+public class MathUtils_1 {
 
     public int square(int x) {
         return x * x;

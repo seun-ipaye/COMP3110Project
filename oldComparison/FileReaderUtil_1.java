@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FileReaderUtil1 {
+public class FileReaderUtil_1 {
 
     public void readFile(String path) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(path));

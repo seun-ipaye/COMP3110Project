@@ -1,4 +1,4 @@
-public class NumberPrinter2 {
+public class NumberPrinter_2 {
 
     public void printNumbers() {
         int i = 1;

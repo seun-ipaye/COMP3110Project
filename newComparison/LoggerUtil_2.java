@@ -1,4 +1,4 @@
-public class LoggerUtil2 {
+public class LoggerUtil_2 {
 
     public void logInfo(String msg) {
         System.out.println("INFO: " + msg);

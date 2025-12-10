@@ -1,4 +1,4 @@
-public class DiscountCalculator1 {
+public class DiscountCalculator_1 {
 
     public double applyDiscount(double price, double percent) {
         return price - (price * percent / 100);

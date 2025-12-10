@@ -1,4 +1,4 @@
-public class FileDownloader2 {
+public class FileDownloader_2 {
 
     public void fetchFile(String url) {
         System.out.println("Connecting to " + url);

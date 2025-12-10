@@ -1,12 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class SessionManager2 {
+public class SessionManager_2 {
 
     private Map<String, String> activeSessions = new HashMap<>();
 
     public void login(String uid) {
-        activeSessions.put(uid, "ACTIVE");
     }
 
     public void logout(String uid) {

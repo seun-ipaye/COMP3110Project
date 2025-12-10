@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class UserManager2 {
+public class UserManager_2 {
     private List<String> users;
 
-    public UserManager2() {
+    public UserManager_2() {
         users = new ArrayList<>();
     }
 

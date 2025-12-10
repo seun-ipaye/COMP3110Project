@@ -1,4 +1,4 @@
-public class MathHelper1 {
+public class MathHelper_1 {
 
     public int square(int x) {
         return x * x;

@@ -1,4 +1,4 @@
-public class MathUtilsSecondVersion2 {
+public class MathUtilsSecondVersion_2 {
 
     public int getSquare(int number) {
         return multiply(number, number);

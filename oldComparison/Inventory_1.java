@@ -1,7 +1,7 @@
-public class Inventory1 {
+public class Inventory_1 {
     private int stock;
 
-    public Inventory1(int initialStock) {
+    public Inventory_1(int initialStock) {
         this.stock = initialStock;
     }
 

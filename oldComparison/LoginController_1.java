@@ -1,4 +1,4 @@
-public class LoginController1 {
+public class LoginController_1 {
 
     private String username;
     private String password;

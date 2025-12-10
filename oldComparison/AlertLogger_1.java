@@ -1,4 +1,4 @@
-public class AlertLogger1 {
+public class AlertLogger_1 {
 
     public void logAlert(String message, boolean isCritical) {
         if (isCritical) {

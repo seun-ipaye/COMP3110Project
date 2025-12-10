@@ -1,8 +1,8 @@
-public class PaymentProcessor1 {
+public class PaymentProcessor_1 {
 
     private double balance;
 
-    public PaymentProcessor1(double initialBalance) {
+    public PaymentProcessor_1(double initialBalance) {
         this.balance = initialBalance;
     }
 

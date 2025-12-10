@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationService2 {
+public class NotificationService_2 {
 
     private List<String> logs = new ArrayList<>();
 

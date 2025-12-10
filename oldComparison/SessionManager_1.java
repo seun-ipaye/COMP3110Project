@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class SessionManager1 {
+public class SessionManager_1 {
 
     private Map<String, String> sessions = new HashMap<>();
 

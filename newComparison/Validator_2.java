@@ -1,4 +1,4 @@
-public class Validator2 {
+public class Validator_2 {
 
     public boolean validateEmail(String input) {
         return input.indexOf('@') != -1;

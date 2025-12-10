@@ -1,4 +1,4 @@
-public class MathHelper2 {
+public class MathHelper_2 {
 
     public int powerOfTwo(int number) {
         return number * number;

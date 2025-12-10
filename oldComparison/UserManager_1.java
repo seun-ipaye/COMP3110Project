@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserManager1 {
+public class UserManager_1 {
     private List<String> users;
 
-    public UserManager1() {
+    public UserManager_1() {
         users = new ArrayList<>();
     }
 

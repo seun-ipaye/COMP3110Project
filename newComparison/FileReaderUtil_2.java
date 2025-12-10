@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class FileReaderUtil2 {
+public class FileReaderUtil_2 {
 
     public void loadFile(String filename) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filename));

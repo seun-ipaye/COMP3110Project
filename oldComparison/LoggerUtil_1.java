@@ -1,4 +1,4 @@
-public class LoggerUtil1 {
+public class LoggerUtil_1 {
 
     public void info(String message) {
         System.out.println("[INFO]: " + message);
