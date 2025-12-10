@@ -1,0 +1,77 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class FileDownloader1 {
+New: public class FileDownloader2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     public void download(String url) {
+New:     public void fetchFile(String url) {
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old:         System.out.println("Downloading from: " + url);
+New:         System.out.println("Connecting to " + url);
+-----------------------------------------------------
+[RENAMED] Old Line 5 ↔ New Line 7
+Old:         // Simulate delay
+New: 
+-----------------------------------------------------
+Old Line 6 ↔ New Line 13
+Old:         try {
+New:         try {
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 14
+Old:             Thread.sleep(2000);
+New:             Thread.sleep(1000);
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 15
+Old:         } catch (InterruptedException e) {
+New:         } catch (InterruptedException ex) {
+-----------------------------------------------------
+[RENAMED] Old Line 9 ↔ New Line 9
+Old:             System.err.println("Download interrupted");
+New:         System.out.println("Stopped downloading.");
+-----------------------------------------------------
+[RENAMED] Old Line 10 ↔ New Line 6
+Old:         }
+New:     }
+-----------------------------------------------------
+Old Line 11 ↔ New Line 10
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 12 ↔ New Line 11
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 13 ↔ New Line 8
+Old:     public void cancelDownload() {
+New:     public void stop() {
+-----------------------------------------------------
+[RENAMED] Old Line 14 ↔ New Line 16
+Old:         System.out.println("Download canceled.");
+New:             System.out.println("Download failed.");
+-----------------------------------------------------
+[RENAMED] Old Line 15 ↔ New Line 17
+Old:     }
+New:         }
+-----------------------------------------------------
+[RENAMED] Old Line 16 ↔ New Line 18
+Old: }
+New:     }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+New Line 5:         simulateDownload();
+New Line 12:     private void simulateDownload() {
+New Line 19: }
+
+== Summary ==
+Matched Lines: 16
+Deleted Lines: 0
+Inserted Lines: 3

@@ -1,0 +1,41 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class AlertLogger1 {
+New: public class AlertLogger2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     public void logAlert(String message, boolean isCritical) {
+New:     public void sendAlert(String alertMessage, boolean criticalFlag) {
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old:             System.out.println("CRITICAL ALERT: " + message.toUpperCase());
+New:         System.out.println(prefix + " " + alertMessage.toUpperCase());
+-----------------------------------------------------
+Old Line 7 ↔ New Line 4
+Old:             System.out.println("Alert: " + message);
+New:         String prefix = criticalFlag ? "[!!]" : "[~]";
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 6
+Old:         }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 9 ↔ New Line 7
+Old:     }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+Old Line 4:         if (isCritical) {
+Old Line 6:         } else {
+Old Line 10: }
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 7
+Deleted Lines: 3
+Inserted Lines: 0

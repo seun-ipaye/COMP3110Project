@@ -1,0 +1,34 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class LoggerService1 {
+New: public class LoggerService2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     public void log(String msg) {
+New:     public void writeLog(String message) {
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old:         System.out.println(msg);
+New:         System.out.println(message);
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 6 ↔ New Line 6
+Old: }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 6
+Deleted Lines: 0
+Inserted Lines: 0

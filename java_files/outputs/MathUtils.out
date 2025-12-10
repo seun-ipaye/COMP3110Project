@@ -1,0 +1,67 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class MathUtils1 {
+New: public class MathUtils2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     public int square(int x) {
+New:     public int powerOf2(int a) {
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old:         return x * x;
+New:         return a * a;
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 6 ↔ New Line 6
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 7
+Old:     public int cube(int x) {
+New:     public int powerOf3(int b) {
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 8
+Old:         return x * x * x;
+New:         return b * b * b;
+-----------------------------------------------------
+Old Line 9 ↔ New Line 9
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 10 ↔ New Line 10
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 11 ↔ New Line 11
+Old:     public int factorial(int x) {
+New:     public int computeFactorial(int n) {
+-----------------------------------------------------
+Old Line 12 ↔ New Line 12
+Old:         if (x <= 1) return 1;
+New:         return (n <= 1) ? 1 : n * computeFactorial(n - 1);
+-----------------------------------------------------
+Old Line 14 ↔ New Line 13
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 15 ↔ New Line 14
+Old: }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+Old Line 13:         return x * factorial(x - 1);
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 14
+Deleted Lines: 1
+Inserted Lines: 0

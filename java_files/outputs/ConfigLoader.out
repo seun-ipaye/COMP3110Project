@@ -1,0 +1,61 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 2
+Old: import java.io.FileInputStream;
+New: import java.util.Properties;
+-----------------------------------------------------
+Old Line 2 ↔ New Line 1
+Old: import java.io.IOException;
+New: import java.io.*;
+-----------------------------------------------------
+Old Line 3 ↔ New Line 7
+Old: import java.util.Properties;
+New:         Properties p = new Properties();
+-----------------------------------------------------
+Old Line 4 ↔ New Line 3
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 5 ↔ New Line 4
+Old: public class ConfigLoader1 {
+New: public class ConfigLoader2 {
+-----------------------------------------------------
+Old Line 6 ↔ New Line 5
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 6
+Old:     public Properties loadConfig(String filePath) throws IOException {
+New:     public Properties getConfiguration(String path) throws IOException {
+-----------------------------------------------------
+Old Line 8 ↔ New Line 8
+Old:         Properties props = new Properties();
+New:         try (FileInputStream in = new FileInputStream(path)) {
+-----------------------------------------------------
+Old Line 9 ↔ New Line 9
+Old:         FileInputStream fis = new FileInputStream(filePath);
+New:             p.load(in);
+-----------------------------------------------------
+Old Line 10 ↔ New Line 11
+Old:         props.load(fis);
+New:         return p;
+-----------------------------------------------------
+[RENAMED] Old Line 13 ↔ New Line 10
+Old:     }
+New:         }
+-----------------------------------------------------
+[RENAMED] Old Line 14 ↔ New Line 12
+Old: }
+New:     }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+Old Line 11:         fis.close();
+Old Line 12:         return props;
+
+== Inserted Lines (New but not in Old) ==
+New Line 13: }
+
+== Summary ==
+Matched Lines: 12
+Deleted Lines: 2
+Inserted Lines: 1

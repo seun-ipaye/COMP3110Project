@@ -1,0 +1,153 @@
+== Matched Lines (Side-by-Side) ==
+Old Line 1 ↔ New Line 1
+Old: import java.util.ArrayList;
+New: import java.util.ArrayList;
+-----------------------------------------------------
+[RENAMED] Old Line 2 ↔ New Line 2
+Old: import java.util.List;
+New: import java.util.Collections;
+-----------------------------------------------------
+Old Line 3 ↔ New Line 4
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 5
+Old: public class UserManager1 {
+New: public class UserManager2 {
+-----------------------------------------------------
+Old Line 5 ↔ New Line 6
+Old:     private List<String> users;
+New:     private List<String> users;
+-----------------------------------------------------
+Old Line 6 ↔ New Line 7
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 8
+Old:     public UserManager1() {
+New:     public UserManager2() {
+-----------------------------------------------------
+Old Line 8 ↔ New Line 9
+Old:         users = new ArrayList<>();
+New:         users = new ArrayList<>();
+-----------------------------------------------------
+Old Line 9 ↔ New Line 10
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 10 ↔ New Line 11
+Old: 
+New: 
+-----------------------------------------------------
+Old Line 11 ↔ New Line 12
+Old:     public void addUser(String username) {
+New:     public void addUser(String username) {
+-----------------------------------------------------
+[RENAMED] Old Line 12 ↔ New Line 39
+Old:         if (username != null && !username.trim().isEmpty()) {
+New:         return username != null && !username.trim().isEmpty();
+-----------------------------------------------------
+Old Line 13 ↔ New Line 14
+Old:             users.add(username.trim());
+New:             users.add(username.trim());
+-----------------------------------------------------
+Old Line 14 ↔ New Line 15
+Old:         }
+New:         }
+-----------------------------------------------------
+Old Line 15 ↔ New Line 16
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 16 ↔ New Line 17
+Old: 
+New: 
+-----------------------------------------------------
+Old Line 17 ↔ New Line 18
+Old:     public boolean removeUser(String username) {
+New:     public boolean removeUser(String username) {
+-----------------------------------------------------
+Old Line 18 ↔ New Line 19
+Old:         return users.remove(username);
+New:         return users.remove(username);
+-----------------------------------------------------
+Old Line 19 ↔ New Line 20
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 20 ↔ New Line 21
+Old: 
+New: 
+-----------------------------------------------------
+Old Line 21 ↔ New Line 22
+Old:     public boolean userExists(String username) {
+New:     public boolean userExists(String username) {
+-----------------------------------------------------
+Old Line 22 ↔ New Line 23
+Old:         return users.contains(username);
+New:         return users.contains(username);
+-----------------------------------------------------
+Old Line 23 ↔ New Line 24
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 24 ↔ New Line 25
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 25 ↔ New Line 26
+Old:     public List<String> getAllUsers() {
+New:     public List<String> getSortedUsers() {
+-----------------------------------------------------
+Old Line 26 ↔ New Line 3
+Old:         return new ArrayList<>(users);
+New: import java.util.List;
+-----------------------------------------------------
+Old Line 27 ↔ New Line 30
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 28 ↔ New Line 31
+Old: 
+New: 
+-----------------------------------------------------
+Old Line 29 ↔ New Line 32
+Old:     public void printUsers() {
+New:     public void printUsers() {
+-----------------------------------------------------
+Old Line 30 ↔ New Line 33
+Old:         for (String user : users) {
+New:         for (String user : users) {
+-----------------------------------------------------
+Old Line 31 ↔ New Line 28
+Old:             System.out.println(user);
+New:         Collections.sort(copy);
+-----------------------------------------------------
+Old Line 32 ↔ New Line 35
+Old:         }
+New:         }
+-----------------------------------------------------
+Old Line 33 ↔ New Line 36
+Old:     }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 34 ↔ New Line 40
+Old: }
+New:     }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+New Line 13:         if (isValid(username)) {
+New Line 27:         List<String> copy = new ArrayList<>(users);
+New Line 29:         return copy;
+New Line 34:             System.out.println("User: " + user);
+New Line 37: 
+New Line 38:     private boolean isValid(String username) {
+New Line 41: }
+
+== Summary ==
+Matched Lines: 34
+Deleted Lines: 0
+Inserted Lines: 7

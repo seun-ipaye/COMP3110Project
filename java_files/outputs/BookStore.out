@@ -1,0 +1,70 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class BookStore1 {
+New: public class BookStore2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old:     private String name;
+New:     private String name;
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     private String location;
+New:     private String city;
+-----------------------------------------------------
+Old Line 4 ↔ New Line 4
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 5 ↔ New Line 5
+Old:     public BookStore1(String name, String location) {
+New:     public BookStore2(String name, String city) {
+-----------------------------------------------------
+Old Line 6 ↔ New Line 6
+Old:         this.name = name;
+New:         this.name = name;
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 7
+Old:         this.location = location;
+New:         this.city = city;
+-----------------------------------------------------
+Old Line 8 ↔ New Line 8
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 9 ↔ New Line 9
+Old: 
+New: 
+-----------------------------------------------------
+Old Line 10 ↔ New Line 10
+Old:     public void displayInfo() {
+New:     public void displayInfo() {
+-----------------------------------------------------
+[RENAMED] Old Line 11 ↔ New Line 12
+Old:         System.out.println("Bookstore: " + name);
+New:         System.out.println("City: " + city);
+-----------------------------------------------------
+Old Line 12 ↔ New Line 11
+Old:         System.out.println("Location: " + location);
+New:         System.out.println("Bookstore Name: " + name);
+-----------------------------------------------------
+Old Line 13 ↔ New Line 13
+Old:     }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 14 ↔ New Line 17
+Old: }
+New:     }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+New Line 14: 
+New Line 15:     public void open() {
+New Line 16:         System.out.println("The bookstore is now open.");
+New Line 18: }
+
+== Summary ==
+Matched Lines: 14
+Deleted Lines: 0
+Inserted Lines: 4

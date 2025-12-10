@@ -1,0 +1,42 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class NumberPrinter1 {
+New: public class NumberPrinter2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+Old Line 3 ↔ New Line 3
+Old:     public void printNumbers() {
+New:     public void printNumbers() {
+-----------------------------------------------------
+Old Line 4 ↔ New Line 6
+Old:         for (int i = 1; i <= 5; i++) {
+New:             System.out.println("Number: " + i);
+-----------------------------------------------------
+Old Line 6 ↔ New Line 8
+Old:         }
+New:         }
+-----------------------------------------------------
+Old Line 7 ↔ New Line 9
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 8 ↔ New Line 10
+Old: }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+Old Line 5:             System.out.println("Number: " + i);
+
+== Inserted Lines (New but not in Old) ==
+New Line 4:         int i = 1;
+New Line 5:         while (i <= 5) {
+New Line 7:             i++;
+
+== Summary ==
+Matched Lines: 7
+Deleted Lines: 1
+Inserted Lines: 3

@@ -1,0 +1,66 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class AccountService1 {
+New: public class AccountService2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     public void deposit(double amount) {
+New:     public void addFunds(double amt) {
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old:         System.out.println("Deposited: $" + amount);
+New:         System.out.println("Added: $" + amt);
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 6 ↔ New Line 6
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 7
+Old:     public void withdraw(double amount) {
+New:     public void removeFunds(double amt) {
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 8
+Old:         System.out.println("Withdrawn: $" + amount);
+New:         System.out.println("Removed: $" + amt);
+-----------------------------------------------------
+Old Line 9 ↔ New Line 9
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 10 ↔ New Line 10
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 11 ↔ New Line 11
+Old:     public void checkBalance() {
+New:     public void viewBalance() {
+-----------------------------------------------------
+[RENAMED] Old Line 12 ↔ New Line 12
+Old:         System.out.println("Balance checked.");
+New:         System.out.println("Viewing balance.");
+-----------------------------------------------------
+Old Line 13 ↔ New Line 13
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 14 ↔ New Line 14
+Old: }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 14
+Deleted Lines: 0
+Inserted Lines: 0

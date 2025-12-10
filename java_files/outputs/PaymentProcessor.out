@@ -1,0 +1,134 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 3
+Old: public class PaymentProcessor1 {
+New: public class PaymentProcessor2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 5
+Old:     private double balance;
+New:     private double currentBalance;
+-----------------------------------------------------
+Old Line 4 ↔ New Line 4
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 5 ↔ New Line 7
+Old:     public PaymentProcessor1(double initialBalance) {
+New:     public PaymentProcessor2(double initialBalance) {
+-----------------------------------------------------
+[RENAMED] Old Line 6 ↔ New Line 8
+Old:         this.balance = initialBalance;
+New:         this.currentBalance = initialBalance;
+-----------------------------------------------------
+Old Line 7 ↔ New Line 9
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 8 ↔ New Line 6
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 9 ↔ New Line 11
+Old:     public boolean charge(double amount) {
+New:     public boolean processPayment(double amount) {
+-----------------------------------------------------
+[RENAMED] Old Line 10 ↔ New Line 12
+Old:         if (amount <= balance) {
+New:         if (amount > currentBalance) {
+-----------------------------------------------------
+[RENAMED] Old Line 11 ↔ New Line 17
+Old:             balance -= amount;
+New:         currentBalance -= amount;
+-----------------------------------------------------
+Old Line 12 ↔ New Line 18
+Old:             log("Charged: " + amount);
+New:         audit("Payment processed: " + amount);
+-----------------------------------------------------
+[RENAMED] Old Line 13 ↔ New Line 14
+Old:             return true;
+New:             return false;
+-----------------------------------------------------
+Old Line 14 ↔ New Line 15
+Old:         }
+New:         }
+-----------------------------------------------------
+[RENAMED] Old Line 15 ↔ New Line 19
+Old:         return false;
+New:         return true;
+-----------------------------------------------------
+Old Line 16 ↔ New Line 20
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 17 ↔ New Line 10
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 18 ↔ New Line 22
+Old:     public void refund(double amount) {
+New:     public void issueRefund(double funds) {
+-----------------------------------------------------
+[RENAMED] Old Line 19 ↔ New Line 23
+Old:         balance += amount;
+New:         currentBalance += funds;
+-----------------------------------------------------
+Old Line 20 ↔ New Line 24
+Old:         log("Refunded: " + amount);
+New:         audit("Refund issued: " + funds);
+-----------------------------------------------------
+Old Line 21 ↔ New Line 25
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 22 ↔ New Line 16
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 23 ↔ New Line 27
+Old:     private void log(String message) {
+New:     private void audit(String msg) {
+-----------------------------------------------------
+Old Line 24 ↔ New Line 13
+Old:         System.out.println("[LOG] " + message);
+New:             audit("Payment failed for: " + amount);
+-----------------------------------------------------
+Old Line 25 ↔ New Line 29
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 26 ↔ New Line 21
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 27 ↔ New Line 31
+Old:     public double getBalance() {
+New:     public double viewBalance() {
+-----------------------------------------------------
+[RENAMED] Old Line 28 ↔ New Line 32
+Old:         return balance;
+New:         return currentBalance;
+-----------------------------------------------------
+Old Line 29 ↔ New Line 33
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 30 ↔ New Line 34
+Old: }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+New Line 1: import java.time.LocalDateTime;
+New Line 26: 
+New Line 28:         System.out.println(LocalDateTime.now() + " :: " + msg);
+New Line 30: 
+
+== Summary ==
+Matched Lines: 30
+Deleted Lines: 0
+Inserted Lines: 4

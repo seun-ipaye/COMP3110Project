@@ -1,0 +1,36 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class AdminChecker1 {
+New: public class AdminChecker2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     public boolean isAdmin(String role) {
+New:     public boolean isAdministrator(String r) {
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 5
+Old:         }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 9 ↔ New Line 6
+Old:     }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+Old Line 4:         if (role != null && role.equals("admin")) {
+Old Line 5:             return true;
+Old Line 6:         } else {
+Old Line 7:             return false;
+Old Line 10: }
+
+== Inserted Lines (New but not in Old) ==
+New Line 4:         return "admin".equals(r);
+
+== Summary ==
+Matched Lines: 5
+Deleted Lines: 5
+Inserted Lines: 1

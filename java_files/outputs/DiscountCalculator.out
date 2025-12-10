@@ -1,0 +1,50 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class DiscountCalculator1 {
+New: public class DiscountCalculator2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     public double applyDiscount(double price, double percent) {
+New:     public double calculateDiscount(double amount, double rate) {
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old:         return price - (price * percent / 100);
+New:         return amount * (1 - rate / 100);
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 6 ↔ New Line 6
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 7
+Old:     public boolean isEligible(double total) {
+New:     public boolean eligibleForDiscount(double value) {
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 8
+Old:         return total > 100;
+New:         return value >= 101;
+-----------------------------------------------------
+Old Line 9 ↔ New Line 9
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 10 ↔ New Line 10
+Old: }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 10
+Deleted Lines: 0
+Inserted Lines: 0

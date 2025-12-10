@@ -1,0 +1,94 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 4
+Old: public class NotificationService1 {
+New: public class NotificationService2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 3
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 8
+Old:     public void sendEmail(String user, String msg) {
+New:     public void deliverEmail(String username, String content) {
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 9
+Old:         System.out.println("EMAIL to " + user + ": " + msg);
+New:         System.out.println("Email delivered to " + username + ": " + content);
+-----------------------------------------------------
+Old Line 5 ↔ New Line 11
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 6 ↔ New Line 5
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 13
+Old:     public void sendSMS(String user, String msg) {
+New:     public void deliverSMS(String username, String content) {
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 14
+Old:         System.out.println("SMS to " + user + ": " + msg);
+New:         System.out.println("SMS delivered to " + username + ": " + content);
+-----------------------------------------------------
+Old Line 9 ↔ New Line 16
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 10 ↔ New Line 7
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 11 ↔ New Line 18
+Old:     public void sendPush(String user, String msg) {
+New:     public void sendPushNotification(String username, String content) {
+-----------------------------------------------------
+[RENAMED] Old Line 12 ↔ New Line 19
+Old:         System.out.println("PUSH to " + user + ": " + msg);
+New:         System.out.println("Push sent to " + username + ": " + content);
+-----------------------------------------------------
+Old Line 13 ↔ New Line 21
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 14 ↔ New Line 12
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 15 ↔ New Line 23
+Old:     public void broadcast(String message) {
+New:     public void announce(String msg) {
+-----------------------------------------------------
+[RENAMED] Old Line 16 ↔ New Line 24
+Old:         System.out.println("Broadcasting: " + message);
+New:         System.out.println("ANNOUNCEMENT: " + msg);
+-----------------------------------------------------
+Old Line 17 ↔ New Line 25
+Old:     }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 18 ↔ New Line 29
+Old: }
+New:     }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+New Line 1: import java.util.ArrayList;
+New Line 2: import java.util.List;
+New Line 6:     private List<String> logs = new ArrayList<>();
+New Line 10:         logs.add("Email -> " + username);
+New Line 15:         logs.add("SMS -> " + username);
+New Line 17: 
+New Line 20:         logs.add("Push -> " + username);
+New Line 22: 
+New Line 26: 
+New Line 27:     public List<String> getLogs() {
+New Line 28:         return logs;
+New Line 30: }
+
+== Summary ==
+Matched Lines: 18
+Deleted Lines: 0
+Inserted Lines: 12

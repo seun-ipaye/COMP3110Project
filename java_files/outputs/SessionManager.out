@@ -1,0 +1,86 @@
+== Matched Lines (Side-by-Side) ==
+Old Line 1 ↔ New Line 1
+Old: import java.util.HashMap;
+New: import java.util.HashMap;
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: import java.util.Map;
+New: import java.util.Map;
+-----------------------------------------------------
+Old Line 3 ↔ New Line 3
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old: public class SessionManager1 {
+New: public class SessionManager2 {
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 6 ↔ New Line 6
+Old:     private Map<String, String> sessions = new HashMap<>();
+New:     private Map<String, String> activeSessions = new HashMap<>();
+-----------------------------------------------------
+Old Line 7 ↔ New Line 7
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 8
+Old:     public void startSession(String userId) {
+New:     public void login(String uid) {
+-----------------------------------------------------
+[RENAMED] Old Line 9 ↔ New Line 9
+Old:         sessions.put(userId, "ACTIVE");
+New:         activeSessions.put(uid, "ACTIVE");
+-----------------------------------------------------
+Old Line 10 ↔ New Line 10
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 11 ↔ New Line 11
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 12 ↔ New Line 12
+Old:     public void endSession(String userId) {
+New:     public void logout(String uid) {
+-----------------------------------------------------
+[RENAMED] Old Line 13 ↔ New Line 13
+Old:         sessions.remove(userId);
+New:         activeSessions.remove(uid);
+-----------------------------------------------------
+Old Line 14 ↔ New Line 14
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 15 ↔ New Line 15
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 16 ↔ New Line 16
+Old:     public boolean isActive(String userId) {
+New:     public boolean checkStatus(String uid) {
+-----------------------------------------------------
+[RENAMED] Old Line 17 ↔ New Line 17
+Old:         return sessions.containsKey(userId);
+New:         return activeSessions.containsKey(uid);
+-----------------------------------------------------
+Old Line 18 ↔ New Line 18
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 19 ↔ New Line 19
+Old: }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 19
+Deleted Lines: 0
+Inserted Lines: 0

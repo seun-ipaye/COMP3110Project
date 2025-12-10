@@ -1,0 +1,72 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class Inventory1 {
+New: public class Inventory2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old:     private int stock;
+New:     private int stock;
+-----------------------------------------------------
+Old Line 3 ↔ New Line 3
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old:     public Inventory1(int initialStock) {
+New:     public Inventory2(int initialStock) {
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old:         this.stock = initialStock;
+New:         this.stock = initialStock;
+-----------------------------------------------------
+Old Line 6 ↔ New Line 6
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 7 ↔ New Line 7
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 8
+Old:     public void addStock(int amount) {
+New:     public void updateStock(int amount) {
+-----------------------------------------------------
+Old Line 9 ↔ New Line 9
+Old:         stock += amount;
+New:         stock += amount;
+-----------------------------------------------------
+Old Line 10 ↔ New Line 10
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 11 ↔ New Line 11
+Old: 
+New: 
+-----------------------------------------------------
+Old Line 12 ↔ New Line 12
+Old:     public void removeStock(int amount) {
+New:     public boolean hasStock() {
+-----------------------------------------------------
+Old Line 13 ↔ New Line 13
+Old:         if (amount <= stock) {
+New:         return stock > 0;
+-----------------------------------------------------
+[RENAMED] Old Line 15 ↔ New Line 14
+Old:         }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 16 ↔ New Line 15
+Old:     }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+Old Line 14:             stock -= amount;
+Old Line 17: }
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 15
+Deleted Lines: 2
+Inserted Lines: 0

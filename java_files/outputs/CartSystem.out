@@ -1,0 +1,118 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: import java.util.ArrayList;
+New: import java.util.LinkedList;
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: import java.util.List;
+New: import java.util.List;
+-----------------------------------------------------
+Old Line 3 ↔ New Line 3
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old: public class CartSystem1 {
+New: public class CartSystem2 {
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 6 ↔ New Line 6
+Old:     private List<String> items = new ArrayList<>();
+New:     private List<String> cartItems = new LinkedList<>();
+-----------------------------------------------------
+Old Line 7 ↔ New Line 7
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 8 ↔ New Line 8
+Old:     public void addItem(String item) {
+New:     public void insert(String product) {
+-----------------------------------------------------
+[RENAMED] Old Line 9 ↔ New Line 9
+Old:         items.add(item);
+New:         cartItems.add(product);
+-----------------------------------------------------
+Old Line 10 ↔ New Line 28
+Old:         System.out.println(item + " added to cart.");
+New:         System.out.println("[CartLog] " + message);
+-----------------------------------------------------
+Old Line 11 ↔ New Line 11
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 12 ↔ New Line 12
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 13 ↔ New Line 13
+Old:     public void removeItem(String item) {
+New:     public void delete(String product) {
+-----------------------------------------------------
+[RENAMED] Old Line 14 ↔ New Line 14
+Old:         items.remove(item);
+New:         cartItems.remove(product);
+-----------------------------------------------------
+Old Line 15 ↔ New Line 20
+Old:         System.out.println(item + " removed from cart.");
+New:         log("Cart has been reset.");
+-----------------------------------------------------
+Old Line 16 ↔ New Line 16
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 17 ↔ New Line 17
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 18 ↔ New Line 18
+Old:     public void clearCart() {
+New:     public void resetCart() {
+-----------------------------------------------------
+[RENAMED] Old Line 19 ↔ New Line 19
+Old:         items.clear();
+New:         cartItems.clear();
+-----------------------------------------------------
+Old Line 20 ↔ New Line 27
+Old:         System.out.println("Cart cleared.");
+New:     private void log(String message) {
+-----------------------------------------------------
+Old Line 21 ↔ New Line 21
+Old:     }
+New:     }
+-----------------------------------------------------
+Old Line 22 ↔ New Line 22
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 23 ↔ New Line 23
+Old:     public List<String> getItems() {
+New:     public List<String> viewCart() {
+-----------------------------------------------------
+[RENAMED] Old Line 24 ↔ New Line 24
+Old:         return items;
+New:         return cartItems;
+-----------------------------------------------------
+Old Line 25 ↔ New Line 25
+Old:     }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 26 ↔ New Line 29
+Old: }
+New:     }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+
+== Inserted Lines (New but not in Old) ==
+New Line 10:         log(product + " added.");
+New Line 15:         log(product + " removed.");
+New Line 26: 
+New Line 30: }
+
+== Summary ==
+Matched Lines: 26
+Deleted Lines: 0
+Inserted Lines: 4

@@ -1,0 +1,49 @@
+== Matched Lines (Side-by-Side) ==
+[RENAMED] Old Line 1 ↔ New Line 1
+Old: public class LoginController1 {
+New: public class LoginController2 {
+-----------------------------------------------------
+Old Line 2 ↔ New Line 2
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 3 ↔ New Line 3
+Old:     private String username;
+New:     private String storedUser;
+-----------------------------------------------------
+[RENAMED] Old Line 4 ↔ New Line 4
+Old:     private String password;
+New:     private String storedPass;
+-----------------------------------------------------
+Old Line 5 ↔ New Line 5
+Old: 
+New: 
+-----------------------------------------------------
+[RENAMED] Old Line 6 ↔ New Line 6
+Old:     public boolean login(String user, String pass) {
+New:     public boolean authenticate(String u, String p) {
+-----------------------------------------------------
+[RENAMED] Old Line 7 ↔ New Line 7
+Old:         if (user.equals(username) && pass.equals(password)) {
+New:         return u.equals(storedUser) && p.equals(storedPass);
+-----------------------------------------------------
+[RENAMED] Old Line 9 ↔ New Line 8
+Old:         }
+New:     }
+-----------------------------------------------------
+[RENAMED] Old Line 11 ↔ New Line 9
+Old:     }
+New: }
+-----------------------------------------------------
+
+== Deleted Lines (Old but not in New) ==
+Old Line 8:             return true;
+Old Line 10:         return false;
+Old Line 12: }
+
+== Inserted Lines (New but not in Old) ==
+
+== Summary ==
+Matched Lines: 9
+Deleted Lines: 3
+Inserted Lines: 0
