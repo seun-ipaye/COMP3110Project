@@ -59,12 +59,7 @@ public class Mapper {
         System.out.println("\n=== PROCESSING " + allFileLines.size() + " FILES ===");
         System.out.println("Performing sequential comparisons...\n");
         
-        // Perform sequential comparisons:
-        // 1. File 1 with File 1 (self-comparison)
-        // 2. File 1 with File 2
-        // 3. File 2 with File 3
-        // etc.
-        
+        // Performing sequential comparisons:
         List<String> allXMLResults = new ArrayList<>();
         
         for (int i = 0; i < allFileLines.size(); i++) {
@@ -393,4 +388,5 @@ public class Mapper {
         xml.append("</TEST>");
         return xml.toString();
     }
+
 }
